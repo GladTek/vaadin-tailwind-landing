@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+:root {
+  --app-bg: #f8fafc;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.05);
+  --accent-primary: #0284c7;
+  --accent-secondary: #4f46e5;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-primary);
+  @apply bg-slate-50 text-slate-900 antialiased;
+}
+
+@utility glass-panel {
+  @apply bg-white/70 backdrop-blur-2xl border border-slate-200 shadow-[0_8px_32px_0_rgba(15,23,42,0.05)];
+}
+
+@utility text-gradient {
+  @apply bg-clip-text text-transparent bg-linear-to-r from-sky-600 to-indigo-700;
+}
+
+.title-text-gradient {
+  @apply text-gradient;
+}
+.btn-primary {
+  @apply px-6 py-3 rounded-xl bg-linear-to-r from-sky-500 to-indigo-600
+         text-white font-semibold transition-all duration-300
+         hover:shadow-[0_0_20px_rgba(56,189,248,0.4)] hover:-translate-y-0.5 active:scale-95;
+}
+
+/* Navbar Component Styles */
+.navbar {
+  @apply sticky top-0 z-50 w-full glass-panel border-b border-slate-200;
+}
+
+.navbar-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.navbar-layout {
+  @apply flex justify-between items-center h-16;
+}
+
+.navbar-logo {
+  @apply text-xl font-extrabold tracking-tighter text-gradient;
+}
+
+.navbar-links {
+  @apply hidden md:flex space-x-8 items-center;
+}
+
+.navbar-link {
+  @apply text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors relative;
+}
+
+.navbar-link-underline {
+  @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-sky-500 transition-all;
+
+  .navbar-link:hover & {
+    @apply w-full;
+  }
+}
+
+.navbar-actions {
+  @apply flex items-center space-x-4;
+}
+
+.navbar-signin {
+  @apply text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors;
+}
+
+/* Hero Component Styles */
+.hero {
+  @apply relative pt-32 pb-40 w-full;
+}
+
+.hero-glow-1 {
+  @apply absolute top-0 -left-20 w-[500px] h-[500px] bg-sky-200/50 rounded-full blur-[120px] pointer-events-none;
+}
+
+.hero-glow-2 {
+  @apply absolute top-20 -right-20 w-[500px] h-[500px] bg-indigo-200/50 rounded-full blur-[120px] pointer-events-none;
+}
+
+.hero-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10;
+}
+
+.hero-content {
+  @apply text-center;
+}
+
+.hero-badge {
+  @apply inline-flex items-center gap-x-1.5 py-1 px-3 rounded-full text-sm font-medium bg-sky-100 text-sky-700 border border-sky-200 mb-8;
+}
+
+.hero-title {
+  @apply text-5xl md:text-7xl font-extrabold tracking-tight mb-8 text-slate-900;
+}
+
+.hero-description {
+  @apply mt-6 max-w-2xl mx-auto text-lg md:text-xl text-slate-600 mb-10;
+}
+
+.hero-cta-group {
+  @apply flex flex-col sm:flex-row justify-center gap-4;
+}
+
+.btn-secondary {
+  @apply px-6 py-3 rounded-xl bg-white border border-slate-200 text-slate-900 font-semibold hover:bg-slate-50 transition-all shadow-sm;
+}
+
+.footer {
+  @apply bg-white border-t border-slate-100 pt-24 pb-12 w-full;
+}
+
+.footer-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.footer-grid {
+  @apply grid grid-cols-2 md:grid-cols-4 gap-12 mb-16;
+}
+
+.footer-logo {
+  @apply text-xl font-bold text-slate-900 mb-6 block;
+}
+
+.footer-description {
+  @apply text-slate-600 text-sm leading-relaxed;
+}
+
+.footer-column-title {
+  @apply text-sm font-bold text-slate-900 uppercase tracking-widest mb-6;
+}
+
+.footer-link-list {
+  @apply flex flex-col gap-4;
+}
+
+.footer-link {
+  @apply text-sm text-slate-600 hover:text-sky-600 transition-colors;
+}
+
+.footer-bottom {
+  @apply pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4;
+}
+
+.footer-copy {
+  @apply text-slate-600 text-xs;
+}
+
+.footer-social {
+  @apply flex gap-6;
+}
+
+.footer-social-link {
+  @apply text-slate-500 hover:text-slate-900 text-xs font-medium;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full hover:bg-slate-400 transition-colors;
+}
