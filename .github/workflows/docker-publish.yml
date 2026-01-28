@@ -1,0 +1,53 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Read Version Config
+        id: config
+        run: |
+          echo "TAG=$(jq -r .tag version.json)" >> $GITHUB_OUTPUT
+          echo "UPDATE_LATEST=$(jq -r .update_latest version.json)" >> $GITHUB_OUTPUT
+          echo "SHOULD_PUSH=$(jq -r .push version.json)" >> $GITHUB_OUTPUT
+          echo "IMAGE_NAME=$(jq -r .image_name version.json)" >> $GITHUB_OUTPUT
+
+      - name: Login to Docker Hub
+        if: steps.config.outputs.SHOULD_PUSH == 'true'
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Generate Docker Tags
+        id: tags
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        run: |
+          IMAGE_ID="$DOCKER_USERNAME/${{ steps.config.outputs.IMAGE_NAME }}"
+          TAGS="$IMAGE_ID:${{ steps.config.outputs.TAG }}"
+          if [ "${{ steps.config.outputs.UPDATE_LATEST }}" = "true" ]; then
+            TAGS="$TAGS,$IMAGE_ID:latest"
+          fi
+          echo "DOCKER_TAGS=$TAGS" >> $GITHUB_OUTPUT
+
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: ${{ steps.config.outputs.SHOULD_PUSH == 'true' }}
+          tags: ${{ steps.tags.outputs.DOCKER_TAGS }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
