@@ -1,0 +1,24 @@
+server:
+  port: ${PORT:8080}
+
+logging:
+  level:
+    org.atmosphere: warn
+
+vaadin:
+  launch-browser: false
+  copilot:
+    enable: false
+  devmode:
+    usageStatistics:
+      enabled: false
+  allowed-packages: com.vaadin,org.vaadin,com.gladtek.vaadin
+
+app:
+  meta:
+    og:
+      title: "GladTek - Vaadin Tailwind Landing Page Showcase"
+      description: "GladTek - Modern Enterprise Cloud Platform - Vaadin Tailwind Landing Page Showcase"
+      image: "https://vaadin-landing.gladtek.com/images/og.webp"
+      url: "https://vaadin-landing.gladtek.com"
+      type: "website"
