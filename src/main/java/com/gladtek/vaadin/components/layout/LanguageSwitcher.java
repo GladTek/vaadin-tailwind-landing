@@ -30,7 +30,7 @@ public class LanguageSwitcher extends Div {
             container.addClassNames("flex", "items-center", "gap-2");
 
             Image flag = new Image(getFlagUrl(locale), locale.getDisplayLanguage());
-            flag.addClassNames("w-6", "h-4", "rounded-sm", "shadow-xs");
+            flag.addClassNames("w-8", "h-4", "rounded-sm", "shadow-xs");
             
             Span label = new Span(locale.getLanguage().toUpperCase());
             label.addClassNames("text-sm", "font-medium");
