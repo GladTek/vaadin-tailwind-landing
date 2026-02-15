@@ -15,6 +15,8 @@ public class Application implements AppShellConfigurator {
     public void configurePage(com.vaadin.flow.server.AppShellSettings settings) {
         settings.addLink("preconnect", "https://api.dicebear.com");
         settings.addLink("dns-prefetch", "https://api.dicebear.com");
+        settings.addLink("preconnect", "https://flagcdn.com");
+        settings.addLink("dns-prefetch", "https://flagcdn.com");
         settings.addMetaTag("description", "GladTek - Expert Jahia & Vaadin development services. We specialize in custom modules, SEO audits, and web application development.");
     }
 
