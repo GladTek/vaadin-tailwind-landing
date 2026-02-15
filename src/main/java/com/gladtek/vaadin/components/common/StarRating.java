@@ -12,6 +12,7 @@ public class StarRating extends Div {
 
     public StarRating(int rating, int max) {
         addClassNames("flex", "gap-1", "mb-4", "text-amber-400");
+        getElement().setAttribute("role", "img");
         getElement().setAttribute("aria-label", "Rated " + rating + " out of " + max + " stars");
         
         for (int i = 0; i < max; i++) {

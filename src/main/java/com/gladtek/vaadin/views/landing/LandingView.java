@@ -10,6 +10,7 @@ import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.Direction;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
@@ -35,7 +36,11 @@ public class LandingView extends VerticalLayout {
         AppFooter footer = new AppFooter();
         ThemeSwitcher themeSwitcher = new ThemeSwitcher();
 
-        add(skipLink, navbar, hero, stats, features, pricing, testimonials, cta, footer, themeSwitcher);
+        Main main = new Main();
+        main.setWidthFull();
+        main.add(hero, stats, features, pricing, testimonials, cta);
+
+        add(skipLink, navbar, main, footer, themeSwitcher);
     }
 
     @Override
