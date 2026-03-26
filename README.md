@@ -38,8 +38,8 @@ mvn clean package -Pproduction
 
 ## Technology Stack
 
-- **Vaadin 25.0.5+**: Java web framework with Vite integration.
-- **Spring Boot 4.0+**: Backend infrastructure.
+- **Vaadin 25.1.0**: Java web framework with Vite integration.
+- **Spring Boot 4.0.4**: Backend infrastructure.
 - **Tailwind CSS 4**: Next-gen utility-first CSS framework.
 - **Vite**: Modern frontend build tool.
 - **Java 21**
