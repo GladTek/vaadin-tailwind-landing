@@ -1,6 +1,10 @@
+# Modern Vaadin Landing Page
+
+A high-performance, responsive landing page built with **Vaadin 25**, **Spring Boot 4**, and **Tailwind CSS 4**. This project showcases modern Java web development practices with a focus on localization (I18N), RTL support, and a modular architecture.
+
 ## Multi-Language Showcase
 
-The landing page features full localization and RTL support. Here is a showcase of the four supported languages:
+The landing page features full localization and native RTL support. Here is a showcase of the four supported languages:
 
 | English (LTR) | Arabic (RTL) |
 | :---: | :---: |
@@ -10,13 +14,42 @@ The landing page features full localization and RTL support. Here is a showcase 
 
 ## Key Features
 
-- **Full I18N (4 Languages)**: Localization for English, Arabic, French and Japanese.
-- **RTL Support**: Native Right-to-Left layout support for Arabic with mirrored spacing and logic.
-- **Organisation**: Organized into logical sub-packages (`model`, `section`, `layout`, `common`) for horizontal scalability.
-- **Aware Component Pattern**: Decentralized translation logic where components resolve their own I18N keys.
-- **Micro-Animations**: Smooth transitions, hover effects, and RTL-aware sliding toggles.
+-   **Full I18N (4 Languages)**: Comprehensive localization for English, Arabic, French, and Japanese.
+-   **Native RTL Support**: Automated layout mirroring for Arabic, utilizing Tailwind's logical properties.
+-   **Modular Architecture**: Organized into logical sub-packages (`model`, `section`, `layout`, `common`) for high maintainability.
+-   **Translation-Aware Components**: A decentralized pattern where components resolve their own I18N keys using a custom `I18NAware` approach.
+-   **Modern Tech Stack**: Leverages the latest Vaadin 25 features and Tailwind CSS 4 utility-first approach.
+-   **Micro-Animations**: Smooth transitions, interactive hover effects, and direction-aware components.
+-   **PWA Ready**: Out-of-the-box support for Progressive Web App features.
+
+## Technology Stack
+
+-   **Vaadin 25.1.1**: Modern Java web framework with Vite-native performance.
+-   **Spring Boot 4.0.5**: Robust backend infrastructure.
+-   **Tailwind CSS 4.2.1**: Next-generation utility-first CSS framework with JIT engine.
+-   **Vite 7.3.1**: Rapid frontend build tool.
+-   **Java 21**: Utilizing modern Java features like Records for data models.
+
+## Project Structure
+
+The project follows a modular, feature-based architecture:
+
+-   `src/main/java/com/gladtek/vaadin/`
+    -   `data/model/`: Domain structures using Java Records (`Feature`, `Plan`, `Stat`, `Testimonial`).
+    -   `components/`
+        -   `layout/`: Structural elements (`NavBar`, `AppFooter`, `LanguageSwitcher`).
+        -   `section/`: High-level page sections (`Hero`, `Features`, `Stats`, `Pricing`, `Testimonials`, `CTA`).
+        -   `common/`: Reusable UI widgets (`FeatureCard`, `PricingCard`, `StarRating`, `SectionHeader`).
+    -   `i18n/`: Custom internationalization logic and `CustomI18NProvider`.
+    -   `views/landing/`: Main landing page composed of modular sections.
 
 ## Quick Start
+
+### Prerequisites
+
+-   Java 21 or higher
+-   Maven 3.9+
+-   Node.js 22+ (Vaadin will handle the installation if not present)
 
 ### Development Mode
 
@@ -36,37 +69,14 @@ Create an optimized JAR for production:
 mvn clean package -Pproduction
 ```
 
-## Technology Stack
+## Styling and Themes
 
-- **Vaadin 25.1.0**: Java web framework with Vite integration.
-- **Spring Boot 4.0.4**: Backend infrastructure.
-- **Tailwind CSS 4**: Next-gen utility-first CSS framework.
-- **Vite**: Modern frontend build tool.
-- **Java 21**
-
-## Project Structure
-
-The project follows a modular, feature-based architecture:
-
-- `src/main/java/com/gladtek/vaadin/`
-  - `data/`
-    - `model/`: Domain records (`Feature`, `Plan`, `Stat`, `Testimonial`).
-    - `footer/`: Footer configuration records.
-  - `components/`
-    - `layout/`: Base structural elements (`NavBar`, `AppFooter`, `LanguageSwitcher`).
-    - `section/`: Page building blocks (`Hero`, `Features`, `Pricing`, `Testimonials`).
-    - `common/`: Reusable cards and UI widgets.
-  - `views/landing/`: Main view logic isolated by feature.
-  - `services/`: Data provider and aggregator services.
-
-## Themes and Styling
-
-- **Tailwind Integration**: Utility classes applied directly in Java via `addClassNames()`.
-- **Responsive Design**: Mobile-first approach using Tailwind's `md:`, `lg:` breakpoints.
-- **Logical Properties**: RTL-aware styling using `start` and `end` instead of `left` and `right`.
+-   **Tailwind Integration**: Utility classes are applied directly in Java via `addClassNames()`.
+-   **Responsive Design**: Mobile-first approach using Tailwind's `md:`, `lg:` breakpoints.
+-   **Logical Properties**: RTL-aware styling using `s-` and `e-` (start/end) instead of `l-` and `r-` (left/right).
 
 > [!IMPORTANT]
-> To use the Tailwind `@apply` directive in your CSS files, you must use **Vaadin version 25.0.5 or higher**. This ensures that the Vite build pipeline correctly processes Tailwind directives within your stylesheets.
+> To use the Tailwind `@apply` directive in your CSS files, this project uses **Vaadin 25.1.1**. This ensures that the Vite build pipeline correctly processes Tailwind directives within `src/main/resources/META-INF/resources/frontend/styles.css`.
 
 ## Deployment
 
@@ -92,4 +102,4 @@ docker run -p 8080:8080 vaadin-tailwind-landing:latest
 
 ---
 
-*Built by Gladtek*
+*Built by [Gladtek](https://www.gladtek.com)*
