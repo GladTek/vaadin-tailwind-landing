@@ -4,6 +4,7 @@ package com.gladtek.vaadin.components.layout;
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Nav;
+import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 public class NavBar extends Nav {
@@ -23,8 +24,12 @@ public class NavBar extends Nav {
         layout.setPadding(false);
 
 
-        Anchor logo = new Anchor("/", "VAADIN LANDING");
+        Anchor logo = new Anchor("/", "");
         logo.addClassNames("navbar-logo");
+        Span logoVaadin = new Span("VAADIN");
+        Span logoLanding = new Span(" LANDING");
+        logoLanding.addClassNames("hidden", "sm:inline");
+        logo.add(logoVaadin, logoLanding);
 
         Div links = new Div();
         links.addClassNames("navbar-links");
@@ -42,11 +47,11 @@ public class NavBar extends Nav {
 
         Anchor login = new Anchor("https://www.gladtek.com", getTranslation("nav.signin"));
         login.setTarget("_blank");
-        login.addClassNames("navbar-signin");
+        login.addClassNames("navbar-signin", "hidden", "sm:inline-flex");
 
         Anchor getStarted = new Anchor("https://www.gladtek.com", getTranslation("nav.getstarted"));
         getStarted.setTarget("_blank");
-        getStarted.addClassNames("btn-primary", "text-sm", "py-2", "px-4");
+        getStarted.addClassNames("btn-primary", "text-sm", "py-2", "px-4", "hidden", "sm:inline-flex");
 
         actions.add(langSwitcher, login, getStarted);
 

@@ -107,7 +107,7 @@ body {
 }
 
 .language-select {
-  @apply border-none bg-transparent hover:bg-slate-100/50 rounded-lg transition-colors cursor-pointer;
+  @apply border-none bg-transparent hover:bg-slate-100/50 rounded-lg transition-colors cursor-pointer px-1 sm:px-3;
 }
 
 .language-select::part(toggle-button) {
@@ -119,15 +119,15 @@ body {
 }
 
 .navbar-container {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  @apply max-w-7xl mx-auto px-2 sm:px-6 lg:px-8;
 }
 
 .navbar-layout {
-  @apply flex justify-between items-center h-16;
+  @apply flex justify-between items-center h-14 sm:h-16;
 }
 
 .navbar-logo {
-  @apply text-xl font-extrabold tracking-tighter text-gradient;
+  @apply text-base sm:text-xl font-extrabold tracking-tighter text-gradient;
 }
 
 .navbar-links {
@@ -148,7 +148,7 @@ body {
 }
 
 .navbar-actions {
-  @apply flex items-center gap-4;
+  @apply flex items-center gap-2 sm:gap-4;
 }
 
 .navbar-signin {
@@ -181,18 +181,18 @@ body {
 }
 
 .hero-badge {
-  @apply inline-flex items-center gap-x-1.5 py-1 px-3 rounded-full text-sm font-medium mb-8;
+  @apply inline-flex items-center gap-x-1.5 py-1 px-3 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-8;
   background-color: var(--brand-accent);
   color: var(--brand-accent-text);
   border: 1px solid var(--brand-accent-border);
 }
 
 .hero-title {
-  @apply text-5xl md:text-7xl font-extrabold tracking-tight mb-8 text-slate-900;
+  @apply text-3xl sm:text-5xl md:text-7xl font-extrabold tracking-tight mb-4 sm:mb-8 text-slate-900;
 }
 
 .hero-description {
-  @apply mt-6 max-w-2xl mx-auto text-lg md:text-xl text-slate-600 mb-10;
+  @apply mt-4 sm:mt-6 max-w-2xl mx-auto text-base md:text-xl text-slate-600 mb-6 sm:mb-10;
 }
 
 .hero-cta-group {
@@ -443,11 +443,18 @@ body {
 
 /* Theme Switcher FAB Styles */
 .theme-switcher-fab {
-  @apply fixed bottom-8 end-8 z-50 flex items-center gap-2 p-2 rounded-full glass-panel shadow-2xl transition-all duration-500 ease-in-out;
-  width: 56px;
-  height: 56px;
+  @apply fixed bottom-4 end-4 md:bottom-8 md:end-8 z-50 flex items-center gap-2 p-1.5 md:p-2 rounded-full glass-panel shadow-2xl transition-all duration-500 ease-in-out;
+  width: 48px;
+  height: 48px;
   overflow: hidden;
   border: 1px solid var(--brand-accent-border);
+}
+
+@media (min-width: 768px) {
+  .theme-switcher-fab {
+    width: 56px;
+    height: 56px;
+  }
 }
 
 .theme-switcher-fab.expanded {
@@ -456,7 +463,7 @@ body {
 }
 
 .theme-switcher-toggle {
-  @apply w-10 h-10 rounded-full flex items-center justify-center cursor-pointer transition-transform duration-300 shrink-0;
+  @apply w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center cursor-pointer transition-transform duration-300 shrink-0;
   background-color: var(--brand-primary);
   color: white;
 }

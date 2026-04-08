@@ -33,7 +33,7 @@ public class LanguageSwitcher extends Div {
             flag.addClassNames("w-8", "h-4", "rounded-sm", "shadow-xs");
             
             Span label = new Span(locale.getLanguage().toUpperCase());
-            label.addClassNames("text-sm", "font-medium");
+            label.addClassNames("text-sm", "font-medium", "hidden", "sm:inline-block");
             
             container.add(flag, label);
             return container;
