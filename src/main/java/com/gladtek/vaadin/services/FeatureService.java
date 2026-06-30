@@ -11,12 +11,12 @@ public class FeatureService {
 
     public List<Feature> getFeatures() {
         return List.of(
-            new Feature("feature.global.title", "feature.global.desc", "sky", VaadinIcon.GLOBE),
-            new Feature("feature.analytics.title", "feature.analytics.desc", "indigo", VaadinIcon.CHART),
-            new Feature("feature.security.title", "feature.security.desc", "violet", VaadinIcon.SHIELD),
-            new Feature("feature.scalable.title", "feature.scalable.desc", "emerald", VaadinIcon.EXPAND_SQUARE),
-            new Feature("feature.integration.title", "feature.integration.desc", "orange", VaadinIcon.CONNECT),
-            new Feature("feature.dx.title", "feature.dx.desc", "rose", VaadinIcon.CODE)
+            new Feature("feature.global.title", "feature.global.desc", "sky", VaadinIcon.GLOBE, "core"),
+            new Feature("feature.analytics.title", "feature.analytics.desc", "indigo", VaadinIcon.CHART, "dev"),
+            new Feature("feature.security.title", "feature.security.desc", "violet", VaadinIcon.SHIELD, "core"),
+            new Feature("feature.scalable.title", "feature.scalable.desc", "emerald", VaadinIcon.EXPAND_SQUARE, "core"),
+            new Feature("feature.integration.title", "feature.integration.desc", "orange", VaadinIcon.CONNECT, "core"),
+            new Feature("feature.dx.title", "feature.dx.desc", "rose", VaadinIcon.CODE, "dev")
         );
     }
 }

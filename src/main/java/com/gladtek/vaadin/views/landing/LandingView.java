@@ -33,12 +33,13 @@ public class LandingView extends VerticalLayout {
         Pricing pricing = new Pricing(landingPageService.getPricingService());
         Testimonials testimonials = new Testimonials(landingPageService.getTestimonialService());
         CTA cta = new CTA();
+        FAQ faq = new FAQ();
         AppFooter footer = new AppFooter();
         ThemeSwitcher themeSwitcher = new ThemeSwitcher();
 
         Main main = new Main();
         main.setWidthFull();
-        main.add(hero, stats, features, pricing, testimonials, cta);
+        main.add(hero, stats, features, pricing, testimonials, faq, cta);
 
         add(skipLink, navbar, main, footer, themeSwitcher);
     }
