@@ -22,7 +22,7 @@ public class LandingView extends VerticalLayout {
         setWidthFull();
         setPadding(false);
         setSpacing(false);
-        addClassNames("bg-slate-50");
+        addClassNames("bg-slate-50", "dark:bg-slate-950", "transition-colors");
         getElement().getStyle().set("overflow-x", "hidden");
 
         SkipLink skipLink = new SkipLink();

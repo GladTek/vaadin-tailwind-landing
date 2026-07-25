@@ -107,15 +107,122 @@ body {
 }
 
 .language-select {
-  @apply border-none bg-transparent hover:bg-slate-100/50 rounded-lg transition-colors cursor-pointer px-1 sm:px-3;
-}
-
-.language-select::part(toggle-button) {
-  @apply text-slate-400;
+  --lumo-space-m: 0px;
+  @apply bg-slate-100/80 dark:bg-slate-800/80 hover:bg-slate-200/80 dark:hover:bg-slate-700/80 rounded-xl transition-all cursor-pointer px-2 py-0.5 shadow-xs border border-slate-200/80 dark:border-slate-700/80;
 }
 
 .language-select::part(input-field) {
-  @apply bg-transparent;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  min-height: auto;
+  padding: 0 4px;
+}
+
+.language-select::part(toggle-button) {
+  @apply text-slate-500 dark:text-slate-300;
+  padding-inline-start: 4px;
+}
+
+.language-select::part(value) {
+  color: inherit;
+}
+
+vaadin-select-overlay::part(overlay) {
+  @apply rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-1;
+}
+
+vaadin-select-item {
+  @apply text-slate-800 dark:text-slate-100 rounded-lg transition-colors cursor-pointer text-sm font-medium;
+}
+
+vaadin-select-item[focused], vaadin-select-item[selected] {
+  @apply bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold;
+}
+
+/* Modal Dialog Styling */
+vaadin-dialog-overlay::part(overlay), vaadin-dialog::part(overlay) {
+  @apply rounded-2xl border border-slate-200 bg-white shadow-2xl overflow-hidden;
+}
+
+vaadin-dialog-overlay.dark::part(overlay), html.dark vaadin-dialog-overlay::part(overlay), html.dark vaadin-dialog::part(overlay), .dark vaadin-dialog::part(overlay) {
+  background-color: #0f172a !important;
+  border-color: #1e293b !important;
+  color: #f8fafc !important;
+}
+
+vaadin-dialog-overlay::part(content), vaadin-dialog::part(content) {
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+vaadin-dialog-overlay.dark::part(content), html.dark vaadin-dialog-overlay::part(content), html.dark vaadin-dialog::part(content), .dark vaadin-dialog::part(content) {
+  background-color: #0f172a !important;
+}
+
+vaadin-dialog-overlay::part(backdrop), vaadin-dialog::part(backdrop) {
+  @apply bg-slate-950/60 backdrop-blur-xs;
+}
+
+/* Language Modal Content & Card Rules */
+.language-modal-content {
+  @apply p-6 max-w-lg w-full bg-white text-slate-900 rounded-2xl;
+}
+
+html.dark .language-modal-content, .dark .language-modal-content {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+.language-modal-title {
+  @apply text-lg font-bold text-slate-900;
+}
+
+html.dark .language-modal-title, .dark .language-modal-title {
+  color: #f8fafc !important;
+}
+
+.language-modal-subtitle {
+  @apply text-xs text-slate-500;
+}
+
+html.dark .language-modal-subtitle, .dark .language-modal-subtitle {
+  color: #94a3b8 !important;
+}
+
+.language-modal-card {
+  @apply p-4 rounded-xl border cursor-pointer transition-all duration-200 flex items-center justify-between gap-3 bg-slate-50 border-slate-200 hover:border-sky-400 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:border-sky-500;
+}
+
+html.dark .language-modal-card, .dark .language-modal-card {
+  background-color: rgba(30, 41, 59, 0.8) !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
+}
+
+.language-modal-card-name {
+  @apply text-sm font-bold block text-slate-900;
+}
+
+html.dark .language-modal-card-name, .dark .language-modal-card-name {
+  color: #f8fafc !important;
+}
+
+.language-modal-card-region {
+  @apply text-[11px] text-slate-500;
+}
+
+html.dark .language-modal-card-region, .dark .language-modal-card-region {
+  color: #94a3b8 !important;
+}
+
+.language-modal-card.selected {
+  @apply bg-sky-50/80 border-sky-500 shadow-sm;
+}
+
+html.dark .language-modal-card.selected, .dark .language-modal-card.selected {
+  background-color: rgba(12, 74, 110, 0.6) !important;
+  border-color: #0284c7 !important;
 }
 
 .navbar-container {
@@ -545,4 +652,103 @@ body {
 .animate-slideup {
   animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* Dark Mode Overrides */
+.dark {
+  --app-bg: #020617;
+  --glass-bg: rgba(15, 23, 42, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  @apply bg-slate-950 text-slate-100;
+}
+
+.dark body {
+  @apply bg-slate-950 text-slate-100;
+}
+
+.dark .glass-panel {
+  @apply bg-slate-900/80 border-slate-800 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)];
+}
+
+.dark .navbar {
+  @apply bg-slate-950/80 border-slate-800;
+}
+
+.dark .navbar-link, .dark .navbar-signin {
+  @apply text-slate-300 hover:text-white;
+}
+
+.dark .hero-title {
+  @apply text-slate-100;
+}
+
+.dark .hero-description {
+  @apply text-slate-400;
+}
+
+.dark .btn-secondary {
+  @apply bg-slate-900 border-slate-800 text-slate-100 hover:bg-slate-800;
+}
+
+.dark .hero, .dark .features-section, .dark .pricing-section, .dark .testimonials-section, .dark .cta-section, .dark .faq-section {
+  @apply bg-slate-950;
+}
+
+.dark .feature-card, .dark .testimonial-card, .dark .pricing-card {
+  @apply bg-slate-900/90 border-slate-800;
+}
+
+.dark .features-title, .dark .pricing-title, .dark .testimonials-title, .dark .feature-card-title, .dark .pricing-amount, .dark .testimonial-author-name {
+  @apply text-slate-100;
+}
+
+.dark .features-description, .dark .pricing-description, .dark .testimonials-description, .dark .feature-card-description, .dark .testimonial-card p {
+  @apply text-slate-400;
+}
+
+.dark .faq-question-btn {
+  @apply text-slate-100 hover:text-sky-400;
+}
+
+.dark .faq-item {
+  @apply border-slate-800;
+}
+
+.dark .footer {
+  @apply bg-slate-950 border-slate-900;
+}
+
+.dark .footer-column-title, .dark .footer-logo {
+  @apply text-slate-100;
+}
+
+.dark .footer-description, .dark .footer-link, .dark .footer-copy, .dark .footer-social-link {
+  @apply text-slate-400 hover:text-slate-200;
+}
+
+.dark .footer-bottom {
+  @apply border-slate-900;
+}
+
+/* Dashboard Mockup Tabs */
+.dashboard-tab-btn {
+  @apply text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors;
+}
+
+.dashboard-tab-btn.active-tab {
+  @apply bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 shadow-md font-semibold;
+}
+
+/* Card Hover Micro-Interactions */
+.feature-card, .pricing-card, .testimonial-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card:hover, .pricing-card:hover, .testimonial-card:hover {
+  border-color: var(--brand-primary);
+  box-shadow: 0 12px 36px -10px var(--brand-glow);
+  transform: translateY(-4px);
+}
+
 

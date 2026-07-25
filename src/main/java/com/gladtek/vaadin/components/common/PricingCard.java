@@ -20,7 +20,7 @@ public class PricingCard extends Div {
         }
 
         H3 h = new H3(getTranslation(plan.nameKey()));
-        h.addClassNames("text-xl", "font-bold", "text-slate-900", "mb-4");
+        h.addClassNames("text-xl", "font-bold", "text-slate-900", "dark:text-slate-100", "mb-4");
 
         Div priceDiv = new Div();
         priceDiv.addClassNames("flex", "items-baseline", "mb-6");
@@ -31,14 +31,14 @@ public class PricingCard extends Div {
         priceDiv.add(amount, period);
 
         Paragraph p = new Paragraph(getTranslation(plan.descriptionKey()));
-        p.addClassNames("text-slate-600", "text-sm", "mb-8");
+        p.addClassNames("text-slate-600", "dark:text-slate-400", "text-sm", "mb-8");
 
         UnorderedList featureList = new UnorderedList();
         featureList.addClassNames("space-y-4", "mb-10", "flex-grow");
 
         for (String fKey : plan.featureKeys()) {
             ListItem li = new ListItem();
-            li.addClassNames("flex", "items-center", "text-sm", "text-slate-600");
+            li.addClassNames("flex", "items-center", "text-sm", "text-slate-600", "dark:text-slate-400");
             Span check = new Span("✓");
             check.addClassNames("pricing-check");
             check.getElement().setAttribute("aria-hidden", "true");

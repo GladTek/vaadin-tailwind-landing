@@ -48,4 +48,10 @@ public class Stats extends Section {
         item.add(valDiv, labelDiv);
         return item;
     }
+
+    @Override
+    protected void onAttach(com.vaadin.flow.component.AttachEvent attachEvent) {
+        super.onAttach(attachEvent);
+        getElement().executeJs("setTimeout(() => window.ThemeUtils.animateCounters(), 200)");
+    }
 }

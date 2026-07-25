@@ -35,6 +35,19 @@ public class ThemeSwitcher extends Div {
         swatchesContainer.addClassNames("swatches-container");
         themes.forEach(this::createSwatch);
 
+        // Dark Mode Toggle Button
+        Div darkModeToggle = new Div();
+        darkModeToggle.addClassNames("theme-swatch", "flex", "items-center", "justify-center", "bg-slate-800", "text-amber-300", "hover:scale-110");
+        Icon moonIcon = VaadinIcon.MOON.create();
+        moonIcon.setSize("14px");
+        darkModeToggle.add(moonIcon);
+        darkModeToggle.getElement().setAttribute("title", "Toggle Light/Dark Mode");
+        darkModeToggle.addClickListener(e -> {
+            getElement().executeJs("window.ThemeUtils.toggleDarkMode()");
+            toggleExpansion();
+        });
+        swatchesContainer.add(darkModeToggle);
+
         toggle.addClickListener(e -> toggleExpansion());
         
         add(toggle, swatchesContainer);

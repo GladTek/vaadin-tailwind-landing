@@ -1,6 +1,6 @@
 {
-  "tag": "1.1.0",
+  "tag": "1.1.1",
   "update_latest": true,
-  "push": true,
+  "push": false,
   "image_name": "vaadin-tailwind-landing"
 }
