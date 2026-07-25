@@ -6,8 +6,8 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/achaabni/vaadin-tailwind-landing)](https://hub.docker.com/r/achaabni/vaadin-tailwind-landing)
 [![License](https://img.shields.io/github/license/GladTek/vaadin-tailwind-landing)](https://github.com/GladTek/vaadin-tailwind-landing/blob/main/LICENSE)
 [![Java Version](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/technologies/javase-jdk21-downloads.html)
-[![Vaadin Version](https://img.shields.io/badge/Vaadin-25.1.1-blue.svg)](https://vaadin.com)
-[![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.0.5-brightgreen.svg)](https://spring.io/projects/spring-boot)
+[![Vaadin Version](https://img.shields.io/badge/Vaadin-25.2.3-blue.svg)](https://vaadin.com)
+[![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.1.0-brightgreen.svg)](https://spring.io/projects/spring-boot)
 
 A high-performance, responsive landing page built with **Vaadin 25**, **Spring Boot 4**, and **Tailwind CSS 4**. This project showcases modern Java web development practices with a focus on localization (I18N), RTL support, and a modular architecture.
 

@@ -1,6 +1,5 @@
 package com.gladtek.vaadin.components.layout;
 
-import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -58,8 +57,8 @@ public class LanguageSwitcher extends Div {
 
         triggerBtn.add(flag, label, chevron);
         triggerBtn.addClickListener(e -> openLanguageModal());
-        triggerBtn.addKeyDownListener(Key.ENTER, e -> openLanguageModal());
-        triggerBtn.addKeyDownListener(Key.SPACE, e -> openLanguageModal());
+        triggerBtn.getElement().addEventListener("keydown", e -> openLanguageModal())
+            .setFilter("event.key === 'Enter' || event.key === ' '");
 
         add(triggerBtn);
     }
@@ -150,8 +149,8 @@ public class LanguageSwitcher extends Div {
         }
 
         card.addClickListener(e -> selectLocale(locale, dialog));
-        card.addKeyDownListener(Key.ENTER, e -> selectLocale(locale, dialog));
-        card.addKeyDownListener(Key.SPACE, e -> selectLocale(locale, dialog));
+        card.getElement().addEventListener("keydown", e -> selectLocale(locale, dialog))
+            .setFilter("event.key === 'Enter' || event.key === ' '");
 
         return card;
     }
