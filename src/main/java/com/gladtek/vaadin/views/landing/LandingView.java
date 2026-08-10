@@ -11,12 +11,11 @@ import com.vaadin.flow.component.Direction;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.html.Main;
-import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.HasDynamicTitle;
 import com.vaadin.flow.router.Route;
 
 @Route("")
-@PageTitle("GladTek - Modern Enterprise Cloud Platform")
-public class LandingView extends VerticalLayout {
+public class LandingView extends VerticalLayout implements HasDynamicTitle {
 
     public LandingView(LandingPageService landingPageService) {
         setWidthFull();
@@ -42,6 +41,11 @@ public class LandingView extends VerticalLayout {
         main.add(hero, stats, features, pricing, testimonials, faq, cta);
 
         add(skipLink, navbar, main, footer, themeSwitcher);
+    }
+
+    @Override
+    public String getPageTitle() {
+        return getTranslation("page.title");
     }
 
     @Override
