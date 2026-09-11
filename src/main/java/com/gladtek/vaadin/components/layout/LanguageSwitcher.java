@@ -34,7 +34,7 @@ public class LanguageSwitcher extends Div {
         triggerBtn.getElement().setAttribute("tabindex", "0");
         triggerBtn.getElement().setAttribute("role", "button");
         triggerBtn.getElement().setAttribute("aria-haspopup", "dialog");
-        triggerBtn.getElement().setAttribute("aria-label", "Language selector, current language: " + currentLocale.getDisplayLanguage());
+        triggerBtn.getElement().setAttribute("aria-label", getTranslation("lang.selector.aria") + currentLocale.getDisplayLanguage());
 
         triggerBtn.addClassNames(
             "flex", "items-center", "gap-2", "px-3", "py-1.5", "rounded-xl",
@@ -67,7 +67,7 @@ public class LanguageSwitcher extends Div {
         Dialog dialog = new Dialog();
         dialog.setCloseOnOutsideClick(true);
         dialog.setCloseOnEsc(true);
-        dialog.getElement().setAttribute("aria-label", "Select Language & Region");
+        dialog.getElement().setAttribute("aria-label", getTranslation("modal.lang.title"));
         dialog.getElement().executeJs("setTimeout(() => { if (document.documentElement.classList.contains('dark')) { $0.classList.add('dark'); const overlay = document.querySelector('vaadin-dialog-overlay'); if (overlay) overlay.classList.add('dark'); } }, 10)", dialog.getElement());
 
         // Modal Box Wrapper
@@ -79,16 +79,16 @@ public class LanguageSwitcher extends Div {
         header.addClassNames("flex", "items-center", "justify-between", "mb-6", "pb-4", "border-b", "border-slate-200", "dark:border-slate-800");
 
         Div titleGroup = new Div();
-        H3 title = new H3("Select Language / Region");
+        H3 title = new H3(getTranslation("modal.lang.title"));
         title.addClassNames("language-modal-title");
-        Paragraph subtitle = new Paragraph("Choose your preferred display language");
+        Paragraph subtitle = new Paragraph(getTranslation("modal.lang.subtitle"));
         subtitle.addClassNames("language-modal-subtitle");
         titleGroup.add(title, subtitle);
 
         Button closeBtn = new Button(VaadinIcon.CLOSE.create());
         closeBtn.addThemeVariants(ButtonVariant.LUMO_TERTIARY, ButtonVariant.LUMO_ICON);
         closeBtn.addClassNames("text-slate-400", "hover:text-slate-600", "dark:hover:text-slate-200");
-        closeBtn.getElement().setAttribute("aria-label", "Close modal");
+        closeBtn.getElement().setAttribute("aria-label", getTranslation("modal.close.aria"));
         closeBtn.addClickListener(e -> dialog.close());
 
         header.add(titleGroup, closeBtn);

@@ -615,7 +615,7 @@ html.dark .language-modal-card.selected, .dark .language-modal-card.selected {
 }
 
 .faq-question-btn {
-  @apply w-full flex justify-between items-center text-left font-semibold text-lg text-slate-900 transition-colors hover:text-indigo-600 focus:outline-none;
+  @apply w-full flex justify-between items-center text-start font-semibold text-lg text-slate-900 transition-colors hover:text-indigo-600 focus:outline-none;
 }
 
 .faq-answer {

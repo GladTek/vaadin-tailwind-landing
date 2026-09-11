@@ -48,7 +48,7 @@ public class Hero extends Section {
 
         // Interactive SaaS Dashboard Showcase Frame
         Div dashboardFrame = new Div();
-        dashboardFrame.addClassNames("mt-12", "max-w-4xl", "mx-auto", "rounded-2xl", "glass-panel", "p-4", "sm:p-6", "shadow-2xl", "border", "border-slate-200", "dark:border-slate-800", "relative", "text-left");
+        dashboardFrame.addClassNames("mt-12", "max-w-4xl", "mx-auto", "rounded-2xl", "glass-panel", "p-4", "sm:p-6", "shadow-2xl", "border", "border-slate-200", "dark:border-slate-800", "relative", "text-start");
 
         // Window Title & Control Bar
         Div windowBar = new Div();
@@ -64,15 +64,15 @@ public class Hero extends Section {
         Div navTabs = new Div();
         navTabs.addClassNames("flex", "gap-1", "bg-slate-200/60", "dark:bg-slate-900", "border", "border-slate-300/50", "dark:border-slate-800", "p-1", "rounded-lg", "text-xs");
 
-        Div tabOverview = new Div(); tabOverview.setText("Overview"); tabOverview.setId("tab-overview");
+        Div tabOverview = new Div(); tabOverview.setText(getTranslation("hero.dashboard.tab.overview")); tabOverview.setId("tab-overview");
         tabOverview.addClassNames("dashboard-tab-btn", "px-3", "py-1.5", "rounded-md", "cursor-pointer", "active-tab", "transition-colors");
         tabOverview.addClickListener(e -> getElement().executeJs("window.ThemeUtils.switchDashboardTab('overview')"));
 
-        Div tabMetrics = new Div(); tabMetrics.setText("Metrics"); tabMetrics.setId("tab-metrics");
+        Div tabMetrics = new Div(); tabMetrics.setText(getTranslation("hero.dashboard.tab.metrics")); tabMetrics.setId("tab-metrics");
         tabMetrics.addClassNames("dashboard-tab-btn", "px-3", "py-1.5", "rounded-md", "cursor-pointer", "transition-colors");
         tabMetrics.addClickListener(e -> getElement().executeJs("window.ThemeUtils.switchDashboardTab('metrics')"));
 
-        Div tabSecurity = new Div(); tabSecurity.setText("Security"); tabSecurity.setId("tab-security");
+        Div tabSecurity = new Div(); tabSecurity.setText(getTranslation("hero.dashboard.tab.security")); tabSecurity.setId("tab-security");
         tabSecurity.addClassNames("dashboard-tab-btn", "px-3", "py-1.5", "rounded-md", "cursor-pointer", "transition-colors");
         tabSecurity.addClickListener(e -> getElement().executeJs("window.ThemeUtils.switchDashboardTab('security')"));
 
@@ -82,23 +82,23 @@ public class Hero extends Section {
         // Panel 1: Overview
         Div panelOverview = new Div(); panelOverview.setId("panel-overview"); panelOverview.addClassNames("dashboard-panel", "grid", "grid-cols-1", "sm:grid-cols-3", "gap-4");
         panelOverview.add(
-            createMetricCard("Global Requests", "1.24M", "+18.2%", "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400"),
-            createMetricCard("API Latency", "14ms", "-4ms", "bg-sky-100 text-sky-700 dark:bg-sky-950 dark:text-sky-400"),
-            createMetricCard("System Uptime", "99.99%", "Optimal", "bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-400")
+            createMetricCard(getTranslation("hero.dashboard.metric.requests.title"), getTranslation("hero.dashboard.metric.requests.val"), getTranslation("hero.dashboard.metric.requests.badge"), "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400"),
+            createMetricCard(getTranslation("hero.dashboard.metric.latency.title"), getTranslation("hero.dashboard.metric.latency.val"), getTranslation("hero.dashboard.metric.latency.badge"), "bg-sky-100 text-sky-700 dark:bg-sky-950 dark:text-sky-400"),
+            createMetricCard(getTranslation("hero.dashboard.metric.uptime.title"), getTranslation("hero.dashboard.metric.uptime.val"), getTranslation("hero.dashboard.metric.uptime.badge"), "bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-400")
         );
 
         // Panel 2: Metrics
         Div panelMetrics = new Div(); panelMetrics.setId("panel-metrics"); panelMetrics.addClassNames("dashboard-panel", "hidden", "grid", "grid-cols-1", "sm:grid-cols-2", "gap-4");
         panelMetrics.add(
-            createMetricCard("Peak Throughput", "84,200 req/s", "Record", "bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-400"),
-            createMetricCard("Edge Cache Hit", "99.4%", "+0.6%", "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400")
+            createMetricCard(getTranslation("hero.dashboard.metric.throughput.title"), getTranslation("hero.dashboard.metric.throughput.val"), getTranslation("hero.dashboard.metric.throughput.badge"), "bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-400"),
+            createMetricCard(getTranslation("hero.dashboard.metric.cache.title"), getTranslation("hero.dashboard.metric.cache.val"), getTranslation("hero.dashboard.metric.cache.badge"), "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400")
         );
 
         // Panel 3: Security
         Div panelSecurity = new Div(); panelSecurity.setId("panel-security"); panelSecurity.addClassNames("dashboard-panel", "hidden", "grid", "grid-cols-1", "sm:grid-cols-2", "gap-4");
         panelSecurity.add(
-            createMetricCard("Zero Trust Policy", "Enforced", "100%", "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400"),
-            createMetricCard("Threats Blocked", "0 Incidents", "Clean", "bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-400")
+            createMetricCard(getTranslation("hero.dashboard.metric.zero_trust.title"), getTranslation("hero.dashboard.metric.zero_trust.val"), getTranslation("hero.dashboard.metric.zero_trust.badge"), "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400"),
+            createMetricCard(getTranslation("hero.dashboard.metric.threats.title"), getTranslation("hero.dashboard.metric.threats.val"), getTranslation("hero.dashboard.metric.threats.badge"), "bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-400")
         );
 
         dashboardFrame.add(windowBar, panelOverview, panelMetrics, panelSecurity);

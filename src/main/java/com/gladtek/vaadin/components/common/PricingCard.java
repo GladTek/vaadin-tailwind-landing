@@ -14,7 +14,7 @@ public class PricingCard extends Div {
         addClassNames("pricing-card");
         if (plan.popular()) {
             addClassNames("pricing-card-popular");
-            Span badge = new Span("MOST POPULAR");
+            Span badge = new Span(getTranslation("plan.badge.popular"));
             badge.addClassNames("pricing-badge");
             add(badge);
         }

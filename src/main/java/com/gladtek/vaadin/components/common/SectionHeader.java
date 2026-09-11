@@ -18,7 +18,7 @@ public class SectionHeader extends Div {
         if (centered) {
             addClassNames("text-center", "max-w-3xl", "mx-auto");
         } else {
-            addClassNames("text-left", "max-w-2xl");
+            addClassNames("text-start", "max-w-2xl");
         }
 
         if (badge != null && !badge.isEmpty()) {

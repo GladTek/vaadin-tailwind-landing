@@ -15,9 +15,9 @@ public class SkipLink extends Div {
         getElement().setAttribute("role", "navigation");
         getElement().setAttribute("aria-label", "Quick Navigation");
         
-        add(createSkipLink("#navigation", "Skip to navigation"));
-        add(createSkipLink("#main-content", "Skip to main content"));
-        add(createSkipLink("#footer", "Skip to footer"));
+        add(createSkipLink("#navigation", getTranslation("skip.nav")));
+        add(createSkipLink("#main-content", getTranslation("skip.content")));
+        add(createSkipLink("#footer", getTranslation("skip.footer")));
     }
 
     private Anchor createSkipLink(String href, String text) {

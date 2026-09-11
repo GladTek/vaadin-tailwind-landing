@@ -32,7 +32,7 @@ public class CTA extends Section {
         EmailField email = new EmailField();
         email.setPlaceholder(getTranslation("cta.placeholder"));
         email.addClassNames("w-full", "sm:w-64", "bg-white/10", "border-white/20", "text-white", "placeholder-white/50", "rounded-xl", "px-4", "py-3");
-        email.getElement().setAttribute("aria-label", "Email address for subscription");
+        email.getElement().setAttribute("aria-label", getTranslation("cta.email.aria"));
         email.setValueChangeMode(ValueChangeMode.EAGER);
 
         Span errorLabel = new Span();
@@ -49,7 +49,7 @@ public class CTA extends Section {
         checkIcon.addClassNames("w-12", "h-12", "rounded-full", "bg-emerald-500/20", "text-emerald-400", "flex", "items-center", "justify-center", "mx-auto", "mb-4");
         checkIcon.getElement().setProperty("innerHTML", "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M5 13l4 4L19 7\"></path></svg>");
         
-        H3 successTitle = new H3("Thank You!");
+        H3 successTitle = new H3(getTranslation("cta.success.title"));
         successTitle.addClassNames("text-white", "text-xl", "font-bold");
         Paragraph successMsg = new Paragraph(getTranslation("cta.success"));
         successMsg.addClassNames("text-slate-300", "mt-2");
@@ -59,7 +59,7 @@ public class CTA extends Section {
         submit.addClickListener(e -> {
             boolean isInvalid = email.isInvalid() || email.getValue().isEmpty() || !email.getValue().contains("@");
             if (isInvalid) {
-                errorLabel.setText("Please enter a valid email address.");
+                errorLabel.setText(getTranslation("cta.error.invalid_email"));
                 errorLabel.removeClassName("hidden");
             } else {
                 errorLabel.addClassName("hidden");
