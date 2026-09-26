@@ -1,5 +1,6 @@
 package com.gladtek.vaadin.components.layout;
 
+import com.vaadin.flow.component.Direction;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -13,6 +14,7 @@ import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.i18n.I18NProvider;
 import com.vaadin.flow.server.VaadinService;
+import jakarta.servlet.http.Cookie;
 
 import java.util.List;
 import java.util.Locale;
@@ -158,10 +160,21 @@ public class LanguageSwitcher extends Div {
     private void selectLocale(Locale locale, Dialog dialog) {
         UI.getCurrent().getSession().setLocale(locale);
 
+        // Persist language choice in cookie (1 year)
+        Cookie localeCookie = new Cookie("app-locale", locale.getLanguage());
+        localeCookie.setMaxAge(365 * 24 * 60 * 60);
+        localeCookie.setPath("/");
+        if (VaadinService.getCurrentResponse() != null) {
+            VaadinService.getCurrentResponse().addCookie(localeCookie);
+        }
+
+        // Also persist in localStorage for client-side utilities
+        UI.getCurrent().getPage().executeJs("localStorage.setItem('app-locale', $0)", locale.getLanguage());
+
         if (locale.getLanguage().equals("ar")) {
-            UI.getCurrent().setDirection(com.vaadin.flow.component.Direction.RIGHT_TO_LEFT);
+            UI.getCurrent().setDirection(Direction.RIGHT_TO_LEFT);
         } else {
-            UI.getCurrent().setDirection(com.vaadin.flow.component.Direction.LEFT_TO_RIGHT);
+            UI.getCurrent().setDirection(Direction.LEFT_TO_RIGHT);
         }
 
         dialog.close();

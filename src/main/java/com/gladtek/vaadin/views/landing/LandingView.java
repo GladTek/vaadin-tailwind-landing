@@ -9,8 +9,8 @@ import com.gladtek.vaadin.services.LandingPageService;
 import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.Direction;
 import com.vaadin.flow.component.UI;
-import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.html.Main;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.HasDynamicTitle;
 import com.vaadin.flow.router.Route;
 

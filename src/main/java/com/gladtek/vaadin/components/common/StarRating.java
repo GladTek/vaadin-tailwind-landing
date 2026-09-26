@@ -11,13 +11,13 @@ public class StarRating extends Div {
     }
 
     public StarRating(int rating, int max) {
-        addClassNames("flex", "gap-1", "mb-4", "text-amber-400");
+        addClassNames("flex", "gap-1", "mb-4");
         getElement().setAttribute("role", "img");
         getElement().setAttribute("aria-label", "Rated " + rating + " out of " + max + " stars");
         
         for (int i = 0; i < max; i++) {
-            Icon star = (i < rating) ? VaadinIcon.STAR.create() : VaadinIcon.STAR_O.create();
-            star.addClassNames("w-4", "h-4");
+            Icon star = VaadinIcon.STAR.create();
+            star.addClassNames("w-4", "h-4", (i < rating) ? "text-amber-400" : "text-slate-300 dark:text-slate-700");
             star.getElement().setAttribute("aria-hidden", "true");
             add(star);
         }

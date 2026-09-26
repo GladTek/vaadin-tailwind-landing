@@ -15,10 +15,11 @@ vaadin:
   allowed-packages: com.vaadin,org.vaadin,com.gladtek.vaadin
 
 app:
+  url: ${APP_URL:https://vaadin-landing.gladtek.com}
   meta:
     og:
       title: "GladTek - Vaadin Tailwind Landing Page Showcase"
       description: "GladTek - Modern Enterprise Cloud Platform - Vaadin Tailwind Landing Page Showcase"
-      image: "https://vaadin-landing.gladtek.com/images/og.webp"
-      url: "https://vaadin-landing.gladtek.com"
+      image: "${app.url}/images/og.webp"
+      url: "${app.url}"
       type: "website"

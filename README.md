@@ -6,7 +6,7 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/achaabni/vaadin-tailwind-landing)](https://hub.docker.com/r/achaabni/vaadin-tailwind-landing)
 [![License](https://img.shields.io/github/license/GladTek/vaadin-tailwind-landing)](https://github.com/GladTek/vaadin-tailwind-landing/blob/main/LICENSE)
 [![Java Version](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/technologies/javase-jdk21-downloads.html)
-[![Vaadin Version](https://img.shields.io/badge/Vaadin-25.2.7-blue.svg)](https://vaadin.com)
+[![Vaadin Version](https://img.shields.io/badge/Vaadin-25.3.0-blue.svg)](https://vaadin.com)
 [![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.1.0-brightgreen.svg)](https://spring.io/projects/spring-boot)
 
 A high-performance, responsive landing page built with **Vaadin 25**, **Spring Boot 4**, and **Tailwind CSS 4**. This project showcases modern Java web development practices with a focus on localization (I18N), RTL support, and a modular architecture.
@@ -33,10 +33,10 @@ The landing page features full localization and native RTL support. Here is a sh
 
 ## Technology Stack
 
--   **Vaadin 25.2.7**: Modern Java web framework with Vite-native performance.
+-   **Vaadin 25**: Modern Java web framework with Vite-native performance.
 -   **Spring Boot 4.1.0**: Robust backend infrastructure.
--   **Tailwind CSS 4.3.2**: Next-generation utility-first CSS framework with JIT engine.
--   **Vite 8.0.16**: Rapid frontend build tool.
+-   **Tailwind CSS 4.3.3**: Next-generation utility-first CSS framework with JIT engine.
+-   **Vite 8.3.0**: Rapid frontend build tool.
 -   **Java 21**: Utilizing modern Java features like Records for data models.
 
 ## Project Structure
@@ -84,15 +84,18 @@ mvn clean package -Pproduction
 -   **Responsive Design**: Mobile-first approach using Tailwind's `md:`, `lg:` breakpoints.
 -   **Logical Properties**: RTL-aware styling using `s-` and `e-` (start/end) instead of `l-` and `r-` (left/right).
 
-> [!IMPORTANT]
-> To use the Tailwind `@apply` directive in your CSS files, this project uses **Vaadin 25.2.7**. This ensures that the Vite build pipeline correctly processes Tailwind directives within `src/main/resources/META-INF/resources/frontend/styles.css`.
-
 ## Deployment
 
 ### Docker
 
 #### Run an existing image:
 
+From GitHub Container Registry (GHCR):
+```bash
+docker run -p 9000:8080 ghcr.io/gladtek/vaadin-tailwind-landing:latest
+```
+
+From Docker Hub:
 ```bash
 docker run -p 9000:8080 achaabni/vaadin-tailwind-landing:latest
 ```

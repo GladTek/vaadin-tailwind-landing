@@ -16,10 +16,10 @@ RUN $JAVA_HOME/bin/jlink \
          --strip-debug \
          --no-man-pages \
          --no-header-files \
-         --compress=2 \
+         --compress=zip-6 \
          --output /javaruntime
 
-FROM alpine:latest
+FROM alpine:3.21
 ENV JAVA_HOME=/opt/java-runtime
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
 

@@ -1,6 +1,7 @@
 package com.gladtek.vaadin.components.section;
 
 import com.gladtek.vaadin.data.model.Stat;
+import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.html.*;
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class Stats extends Section {
     }
 
     @Override
-    protected void onAttach(com.vaadin.flow.component.AttachEvent attachEvent) {
+    protected void onAttach(AttachEvent attachEvent) {
         super.onAttach(attachEvent);
         getElement().executeJs("setTimeout(() => window.ThemeUtils.animateCounters(), 200)");
     }

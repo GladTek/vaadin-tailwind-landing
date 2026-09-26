@@ -8,3 +8,5 @@ Allow: /
 # Bingbot
 User-agent: bingbot
 Allow: /
+
+Sitemap: {{BASE_URL}}/sitemap.xml
